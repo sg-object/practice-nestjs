@@ -5,6 +5,11 @@ import { DataService } from './data.service';
 export class DataController {
   constructor(private readonly dataService: DataService) {}
 
+  @Post('asset')
+  createAsset() {
+    this.dataService.createAsset();
+  }
+
   @Post('notebook')
   createNoteBook() {
     this.dataService.createNoteBook();
@@ -13,6 +18,11 @@ export class DataController {
   @Post('model')
   createModel() {
     this.dataService.createModel();
+  }
+
+  @Get('asset')
+  async getAsset() {
+    await this.dataService.selectAsset();
   }
 
   @Get('notebook')
